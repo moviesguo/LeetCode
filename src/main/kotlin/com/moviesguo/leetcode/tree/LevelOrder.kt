@@ -29,22 +29,22 @@ package com.moviesguo.algorithm.tree
 
 fun main() {
 
-    val root = TrieNode()
-    val left = TrieNode()
-    val right = TrieNode()
+    val root = TreeNode()
+    val left = TreeNode()
+    val right = TreeNode()
     root.`val` =1
     left.`val` =2
     right.`val` = 3
     root.left = left
     root.right = right
 
-    var leftLeft = TrieNode()
+    var leftLeft = TreeNode()
     leftLeft.`val` = 4
 
     left.left = leftLeft
 
-    var rightLeft = TrieNode()
-    var rightRight = TrieNode()
+    var rightLeft = TreeNode()
+    var rightRight = TreeNode()
     rightLeft.`val` = 15
     rightRight.`val` = 5
 //    right.left = rightLeft
@@ -55,7 +55,7 @@ fun main() {
 
 }
 
-fun levelOrder(root: TrieNode?): List<List<Int>> {
+fun levelOrder(root: TreeNode?): List<List<Int>> {
     val res = ArrayList<MutableList<Int>>()
     helper(root, res, 0)
     return res
@@ -64,7 +64,7 @@ fun levelOrder(root: TrieNode?): List<List<Int>> {
 /**
  * 加入层级的参数后,直接加入到对应层级的子集中
  */
-fun helper(root: TrieNode?, res:MutableList<MutableList<Int>>, level: Int) {
+fun helper(root: TreeNode?, res:MutableList<MutableList<Int>>, level: Int) {
     if (root == null) return
     if (res.size>level) res[level].add(root.`val`)
     else{

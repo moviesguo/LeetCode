@@ -19,11 +19,11 @@ import kotlin.collections.ArrayList
  */
 
 fun main() {
-    var root = TrieNode()
+    var root = TreeNode()
     root.`val` = 1
-    var left = TrieNode()
+    var left = TreeNode()
     left.`val` = 3
-    var right = TrieNode()
+    var right = TreeNode()
     right.`val` = 2
     root.right = right
     right.left = left
@@ -58,10 +58,10 @@ fun main() {
  *  curr = 5.right
  *  到这就差不多了
  */
-fun inorderTraversal(root: TrieNode?): List<Int> {
+fun inorderTraversal(root: TreeNode?): List<Int> {
 
     var res = ArrayList<Int>()
-    var stack = Stack<TrieNode>()
+    var stack = Stack<TreeNode>()
     var curr = root
 
     //root.left为空时可能栈中还有未遍历的节点
@@ -83,13 +83,13 @@ fun inorderTraversal(root: TrieNode?): List<Int> {
 /**
  * 递归版本
  */
-fun recursiveInorderTraversal(root: TrieNode?): List<Int> {
+fun recursiveInorderTraversal(root: TreeNode?): List<Int> {
     var list = ArrayList<Int>()
     recursiveInorderTraversal(root, list)
     return list
 }
 
-fun recursiveInorderTraversal(root: TrieNode?, list:MutableList<Int>){
+fun recursiveInorderTraversal(root: TreeNode?, list:MutableList<Int>){
     if (root==null) return
     list.add(root.`val`)
     recursiveInorderTraversal(root.left, list)
