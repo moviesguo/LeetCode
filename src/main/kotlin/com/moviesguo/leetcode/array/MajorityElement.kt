@@ -22,20 +22,71 @@ fun main() {
     println(majorityElement(a))
 }
 
-fun majorityElement(nums: IntArray): Int {
-    if (nums.isEmpty()) return -1
-    var majorElement = nums[0]
-    var map = HashMap<Int, Int>()
-    map[nums[0]] = 1
-
-    for (i in 1 until nums.size) {
-        var count = map[nums[i]]
-        if (count == null) map[nums[i]] = 1
-        else map[nums[i]] = count + 1
-        var majorCount = map[majorElement] ?: 0
-        if (map[nums[i]]!! > majorCount) {
-            majorElement = nums[i]
+/**
+ * 使用map的方式 时间复杂度O(1) 空间复杂度 O(n+k)
+ */
+fun majorityElement(nums: IntArray): List<Int> {
+    val map = HashMap<Int, Int>()
+    val count = nums.size / 3
+    for (i in nums.indices) {
+        if (map.containsKey(nums[i])) {
+            map[nums[i]] = (map[nums[i]]!! + 1)
+        } else {
+            map[nums[i]] = 1
         }
     }
-    return majorElement
+    val ans = ArrayList<Int>()
+    map.forEach {
+        if (it.value > count) ans.add(it.key)
+    }
+    return ans
+}
+
+/**
+ * 摩尔投票法
+ */
+fun majorityElementHelper(nums:IntArray):List<Int>{
+    if (nums.isEmpty()) return emptyList()
+
+    var candidateA = nums[0]
+    var candidateB = nums[0]
+    var countA = 0
+    var countB = 0
+    //选中两个候选人，如果遇见相同的+1,不相同-1
+    //如果count为0，那么切换候选人
+    //因为出现次数大于n/3的最多只有两个
+    for (i in nums.indices) {
+        if (candidateA == nums[i]) {
+            countA++
+            continue
+        }
+        if (candidateB == nums[i]){
+            countB++
+            continue
+        }
+
+        if (countA == 0) {
+            candidateA = nums[i]
+            countA++
+            continue
+        }
+
+        if (countB == 0) {
+            candidateB = nums[i]
+            countB++
+            continue
+        }
+        countA--
+        countB--
+    }
+    countA = 0
+    countB = 0
+    nums.forEach {
+        if (it == candidateA) countA++
+        else if (it == candidateB) countB++
+    }
+    val ans = ArrayList<Int>()
+    if (countA>nums.size/3) ans.add(candidateA)
+    if (countB>nums.size/3) ans.add(candidateB)
+    return ans
 }
