@@ -1,6 +1,6 @@
-package tree
+package com.moviesguo.leetcode.tree
 
-import TreeNode
+import com.moviesguo.algorithm.tree.TreeNode
 
 /**
  * 给定一个二叉树，找出其最小深度。

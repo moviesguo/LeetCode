@@ -35,28 +35,28 @@ package com.moviesguo.algorithm.tree
  */
 
 fun main() {
-    val root = TrieNode()
-    val left = TrieNode()
-    val right = TrieNode()
+    val root = TreeNode()
+    val left = TreeNode()
+    val right = TreeNode()
     root.`val` = 3
     left.`val` =1
     right.`val` = 5
     root.left = left
     root.right = right
 
-    val leftLeft = TrieNode()
+    val leftLeft = TreeNode()
     leftLeft.`val` = 0
-    val leftRight = TrieNode()
+    val leftRight = TreeNode()
     leftRight.`val` = 2
-    var leftRightRight = TrieNode()
+    var leftRightRight = TreeNode()
     leftRightRight.`val` = 3
 //    leftRight.right = leftRightRight
 
     left.left = leftLeft
     left.right = leftRight
 
-    var rightLeft = TrieNode()
-    var rightRight = TrieNode()
+    var rightLeft = TreeNode()
+    var rightRight = TreeNode()
     rightLeft.`val` = 4
     rightRight.`val` = 6
     right.left = rightLeft
@@ -64,7 +64,7 @@ fun main() {
     println(isValidBST(root))
 }
 
-fun isValidBST(root: TrieNode?): Boolean {
+fun isValidBST(root: TreeNode?): Boolean {
 
     if (root == null) return true
     if (isValidBSTLeft(root.left, root.`val`)) return false
@@ -73,7 +73,7 @@ fun isValidBST(root: TrieNode?): Boolean {
 //    return helper(root,null,null)
 }
 
-fun helper(root: TrieNode?, lower: Int?, upper: Int?):Boolean {
+fun helper(root: TreeNode?, lower: Int?, upper: Int?):Boolean {
     if (root ==null) return true
     var value = root.`val`
 
@@ -91,7 +91,7 @@ fun helper(root: TrieNode?, lower: Int?, upper: Int?):Boolean {
 
 
 
-fun isValidBSTLeft(root: TrieNode?, compareVal: Int): Boolean {
+fun isValidBSTLeft(root: TreeNode?, compareVal: Int): Boolean {
     if (root == null) return true
     if (root.left?.`val` ?: Int.MIN_VALUE >= root.`val` || root.right?.`val` ?: Int.MAX_VALUE <= root.`val`
             || root.left?.`val` ?: Int.MIN_VALUE >= compareVal) return false
@@ -102,7 +102,7 @@ fun isValidBSTLeft(root: TrieNode?, compareVal: Int): Boolean {
 
 
 
-fun isValidBSTRight(root: TrieNode?, compareVal: Int): Boolean {
+fun isValidBSTRight(root: TreeNode?, compareVal: Int): Boolean {
     if (root == null) return true
     if (root.left?.`val` ?: Int.MIN_VALUE >= root.`val` || root.right?.`val` ?: Int.MAX_VALUE <= root.`val`
             || root.right?.`val` ?: Int.MAX_VALUE <= compareVal)return false

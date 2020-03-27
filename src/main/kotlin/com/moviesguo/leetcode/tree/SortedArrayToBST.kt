@@ -1,6 +1,6 @@
-package tree
+package com.moviesguo.leetcode.tree
 
-import TreeNode
+import com.moviesguo.algorithm.tree.TreeNode
 
 /**
  * 将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。

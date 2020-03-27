@@ -1,6 +1,6 @@
-package tree
+package com.moviesguo.leetcode.tree
 
-import TreeNode
+import com.moviesguo.algorithm.tree.TreeNode
 
 /**
  * 给定一个二叉树，它的每个结点都存放着一个整数值。

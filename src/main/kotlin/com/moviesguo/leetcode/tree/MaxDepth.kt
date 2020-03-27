@@ -1,4 +1,7 @@
-package com.moviesguo.algorithm.tree
+package com.moviesguo.leetcode.tree
+
+import com.moviesguo.algorithm.tree.TreeNode
+
 
 /**
  * 给定一个二叉树，找出其最大深度。
@@ -20,16 +23,16 @@ package com.moviesguo.algorithm.tree
  */
 
 fun main() {
-    val root = TrieNode()
-    val left = TrieNode()
-    val right = TrieNode()
+    val root = TreeNode()
+    val left = TreeNode()
+    val right = TreeNode()
     root.`val` =3
     left.`val` =9
     right.`val` = 20
     root.left = left
 //    root.right = right
-    var rightLeft = TrieNode()
-    var rightRight = TrieNode()
+    var rightLeft = TreeNode()
+    var rightRight = TreeNode()
     rightLeft.`val` = 15
     rightRight.`val` = 7
     left.left = rightLeft
@@ -38,11 +41,11 @@ fun main() {
     println(maxDepth(root))
 }
 
-fun maxDepth(root: TrieNode?): Int {
+fun maxDepth(root: TreeNode?): Int {
     return helper(root, 1)
 }
 
-fun helper(root: TrieNode?, level: Int):Int {
+fun helper(root: TreeNode?, level: Int):Int {
     if (root==null) return level - 1
     var max = Int.MIN_VALUE
     max = Math.max(helper(root?.left, level + 1), max)

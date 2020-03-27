@@ -1,6 +1,6 @@
-package tree
+package com.moviesguo.leetcode.tree
 
-import TreeNode
+import com.moviesguo.algorithm.tree.TreeNode
 
 /**
  * 给定两个二叉树，编写一个函数来检验它们是否相同。

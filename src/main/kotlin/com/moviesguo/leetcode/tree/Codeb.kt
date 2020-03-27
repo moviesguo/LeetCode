@@ -1,7 +1,7 @@
-package tree
+package com.moviesguo.leetcode.tree
 
-import TreeNode
-import buildTree
+import com.moviesguo.algorithm.tree.TreeNode
+import com.moviesguo.algorithm.tree.buildTree
 import java.util.*
 
 

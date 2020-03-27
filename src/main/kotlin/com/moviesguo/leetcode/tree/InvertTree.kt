@@ -1,8 +1,7 @@
-package tree
+package com.moviesguo.leetcode.tree
 
-import TreeNode
-import buildNormalTree
-import buildTree
+import com.moviesguo.algorithm.tree.TreeNode
+import com.moviesguo.algorithm.tree.buildTree
 
 /**
  * 翻转一棵二叉树。

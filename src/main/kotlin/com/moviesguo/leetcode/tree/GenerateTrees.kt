@@ -1,6 +1,6 @@
-package tree
+package com.moviesguo.leetcode.tree
 
-import TreeNode
+import com.moviesguo.algorithm.tree.TreeNode
 
 /**
  * 输入: 3
