@@ -97,8 +97,8 @@ fun solution1(root: TreeNode?) {
     root ?: return
     solution1(root.right)
     solution1(root.left)
-    root.right = pre
+    root.right = findModePre
     root.left = null
-    pre = root
+    findModePre = root
 }
 
