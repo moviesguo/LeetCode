@@ -52,6 +52,7 @@ fun main() {
 fun hasGroupsSizeX(deck: IntArray): Boolean {
     if (deck.isEmpty()) return false
     val map = HashMap<Int, Int>()
+    //把每个数出现的次数统计一下
     deck.forEach {
         if (map.containsKey(it)) {
             map[it] = map[it]!! + 1
@@ -59,10 +60,15 @@ fun hasGroupsSizeX(deck: IntArray): Boolean {
             map[it] = 1
         }
     }
+    //排序并去重出现的次数
     val sorted = map.values.toList().distinct().sorted()
+    //如果排序后的结果小于两个就是出现次数相同，只要出现次数>=2就可以
     if (sorted.size < 2) return sorted[0] >= 2
     var divided = sorted[0]
     var divisor = sorted[1]
+    //求两个最小的数的最大公约数，然后用这个公约数再去看是否能把其他出现的所有数字都整除了，如果可以说明可以将数组评分成最大公约数的倍数
+    //如果这个最大公约数大于等于2，那么就满足条件
+    //如果其中有任何一个数不能被这个最大公约数整除，那么就不满足这个条件
     val remainder = gcd(divided, divisor)
     for (i in 2 until sorted.size) {
         if (sorted[i] % remainder != 0) return false
