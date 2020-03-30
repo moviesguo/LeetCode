@@ -32,7 +32,7 @@ package com.moviesguo.leetcode.array
 
 /**
  * 上来想的是 排序加入到set，然后输出第三个，但是时间复杂度要求不符合
- *
+ * 现在的做法是保存3个最大的数，然后不断更新
  */
 fun thirdMax(nums: IntArray): Int {
     if (nums.isEmpty()) return -1
