@@ -1,4 +1,4 @@
-package sort
+package com.moviesguo.leetcode.sort
 
 /**
  * 给定一个无序的数组 nums，将它重新排列成 nums[0] < nums[1] > nums[2] < nums[3]... 的顺序。
@@ -19,7 +19,7 @@ package sort
  */
 
 fun main() {
-    val nums = intArrayOf(4,5,5,6)
+    val nums = intArrayOf(1, 3, 2, 2, 3, 1)
     wiggleSort(nums)
     println(nums.contentToString())
 }
@@ -58,7 +58,7 @@ fun wiggleSort(nums: IntArray): Unit {
 }
 
 /**
- * 快速选择算法，使得idnex为0 until n 的数都小于nums[n],之后的数都大于n
+ * 快速选择算法，使得idnex为0 until n 的数都小于nums[n],之后的数都大于nums[n]
  * @param nums 需要修改的数组
  * @param begin 开始的位置
  * @param end 结束的位置
@@ -86,9 +86,4 @@ fun quickSelect(nums: IntArray, begin: Int, end: Int, n: Int) {
     } else if (i <= n) {
         quickSelect(nums, i, end, n)
     }
-}
-fun swap(nums: IntArray, i: Int, j: Int) {
-    val temp = nums[j]
-    nums[j] = nums[i]
-    nums[i] = temp
 }
