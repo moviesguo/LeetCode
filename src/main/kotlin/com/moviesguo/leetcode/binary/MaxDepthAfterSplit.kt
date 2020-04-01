@@ -1,5 +1,7 @@
 package com.moviesguo.leetcode.binary
 
+import java.util.*
+
 /**
  * 1111. 有效括号的嵌套深度
  * 给你一个「有效括号字符串」 seq，请你将其分成两个不相交的有效括号字符串，A 和 B，并使这两个字符串的深度最小。
@@ -52,18 +54,34 @@ package com.moviesguo.leetcode.binary
  * 例如：""，"()()"，和 "()(()())" 都是有效括号字符串，嵌套深度分别为 0，1，2，而 ")(" 和 "(()" 都不是有效括号字符串。
  *
  */
+fun main() {
+    val seq = "(((()))((())))"
+    val maxDepthAfterSplit = maxDepthAfterSplit(seq)
+    println(maxDepthAfterSplit.contentToString())
+}
+
+
 fun maxDepthAfterSplit(seq: String): IntArray {
+    if (seq.isEmpty()) return intArrayOf()
     var size = seq.length
     val ans = IntArray(size){ 0 }
-    var i = 0
-    //把连接的都找出来然后再去平分嵌套的
-    while (i < size) {
-        if (seq[i]=='(' && seq[i + 1] == ')'){
-            ans[i] = 1
-            ans[i + 1] = 1
-            i++
-        }else if (seq[i] == '(' && seq[i + 1] == '(') {
-
+    var depth = 0
+    //类似遇见一对连续的左括号或者右括号就给他拆成两组
+    //这样(())的时候就是 () ()
+    //这样的 ()() 还是 ()()
+    // (((()))) 的时候就是 (()) (())
+    // (((())))(()) 的时候就是 (())() (())()
+    for (i in 0 until size) {
+        if (seq[i] == '(') {
+            //遇到左括号入栈
+            //然后奇偶,如果是偶数就给0,奇数就给1,这样相当于平分嵌套的那种
+            //对于连续出现的左括号来说,这样就是分到了不同的组,也就相当于从嵌套中隔一个抽一个出来
+            ans[i] = depth++ % 2
+            //ans[i] = i and 1
+        } else {
+            //右括号同理
+            ans[i] = --depth % 2
+            // ans[i] = 1 - i and 1
         }
     }
     return ans
