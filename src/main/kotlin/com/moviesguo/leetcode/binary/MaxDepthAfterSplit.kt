@@ -56,6 +56,7 @@ fun maxDepthAfterSplit(seq: String): IntArray {
     var size = seq.length
     val ans = IntArray(size){ 0 }
     var i = 0
+    //把连接的都找出来然后再去平分嵌套的
     while (i < size) {
         if (seq[i]=='(' && seq[i + 1] == ')'){
             ans[i] = 1
