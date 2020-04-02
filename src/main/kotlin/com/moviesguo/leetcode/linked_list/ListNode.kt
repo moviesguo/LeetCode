@@ -1,4 +1,4 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
 
 class ListNode(var `val`: Int) {
     var next: ListNode? = null

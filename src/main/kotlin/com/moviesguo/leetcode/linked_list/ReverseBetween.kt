@@ -1,4 +1,6 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
+
+import com.moviesguo.leetcode.linked_list.ListNode
 
 /**
  * 反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
@@ -19,9 +21,9 @@ fun main() {
     val reverseBetween = reverseBetween(root, 1, 2)
 }
 
-var successor :ListNode? = null
+var successor : ListNode? = null
 //再看看这个https://leetcode-cn.com/problems/reverse-linked-list-ii/solution/bu-bu-chai-jie-ru-he-di-gui-di-fan-zhuan-lian-biao/
-fun normalReverse(node:ListNode):ListNode?{
+fun normalReverse(node: ListNode): ListNode?{
 //    if (n == 1){
 //        successor = node.next
 //        return node
@@ -37,7 +39,7 @@ fun normalReverse(node:ListNode):ListNode?{
 fun reverseBetween(head: ListNode?, m: Int, n: Int): ListNode? {
     if (head == null || m == n) return head
     var count = n - m
-    var dummy :ListNode? = ListNode(0)
+    var dummy : ListNode? = ListNode(0)
     dummy!!.next = head
     val dummyHead = dummy
     var index = 0
@@ -51,7 +53,7 @@ fun reverseBetween(head: ListNode?, m: Int, n: Int): ListNode? {
             val tail = dummy
             var last: ListNode? = null
             while (count != -1) {
-                val next:ListNode? = dummy!!.next
+                val next: ListNode? = dummy!!.next
                 dummy.next = last
                 last = dummy
                 dummy = next

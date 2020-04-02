@@ -1,4 +1,4 @@
-package com.moviesguo.algorithm.linked_list
+package com.moviesguo.leetcode.linked_list
 
 /**
  * 给定一个链表，判断链表中是否有环。
@@ -42,13 +42,4 @@ fun hasCycle(head: ListNode): Boolean {
         if (fast==slow) return true
     }
     return false
-}
-
-class ListNode {
-    var `val`:Int? = null
-    var next:ListNode? = null
-    constructor(x :Int){
-        `val` = x
-        next = null
-    }
 }

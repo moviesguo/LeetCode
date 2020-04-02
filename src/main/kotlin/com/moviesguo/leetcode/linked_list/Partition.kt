@@ -1,4 +1,6 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
+
+import com.moviesguo.leetcode.linked_list.ListNode
 
 /**
  * 给定一个链表和一个特定值 x，对链表进行分隔，使得所有小于 x 的节点都在大于或等于 x 的节点之前。
@@ -32,7 +34,7 @@ fun main() {
 fun partition(head: ListNode?, x: Int): ListNode? {
     if (head == null) return head
     var cur = head
-    var low:ListNode? = ListNode(0)
+    var low: ListNode? = ListNode(0)
     val lowHead = low
     var high: ListNode? = ListNode(0)
     val highHead = high

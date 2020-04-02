@@ -1,6 +1,6 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
 
-import kotlin.math.sinh
+import com.moviesguo.leetcode.linked_list.ListNode
 
 /**
  * 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。

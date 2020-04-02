@@ -1,4 +1,6 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
+
+import com.moviesguo.leetcode.linked_list.ListNode
 
 /**
  * 给定一个单链表 L：L0→L1→…→Ln-1→Ln ，
@@ -33,7 +35,7 @@ fun main() {
 
 }
 
-fun recorderListHelper(head: ListNode, len: Int):ListNode {
+fun recorderListHelper(head: ListNode, len: Int): ListNode {
     if (len == 1) return head
     if (len == 2) return head.next!!
 
@@ -45,7 +47,7 @@ fun recorderListHelper(head: ListNode, len: Int):ListNode {
     return tail
 }
 
-fun reorderListRecursive(head:ListNode?){
+fun reorderListRecursive(head: ListNode?){
     if (head?.next == null) return
     var count = 0
     var cur = head

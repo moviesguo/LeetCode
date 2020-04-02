@@ -1,4 +1,7 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
+
+import com.moviesguo.leetcode.linked_list.ListNode
+import com.moviesguo.leetcode.linked_list.generateLinkedList
 
 /**
  * 给定一个头结点为 root 的链表, 编写一个函数以将链表分隔为 k 个连续的部分。
@@ -65,7 +68,7 @@ fun splitListToParts(root: ListNode?, k: Int): Array<ListNode?> {
     var lastCount = if (k >= size) 0 else size % k
     val ans = Array<ListNode?>(k) { null }
     var index = 0
-    var cur :ListNode? = root
+    var cur : ListNode? = root
     while (cur != null) {
         val temp = cur
         repeat(subCount - 1) {

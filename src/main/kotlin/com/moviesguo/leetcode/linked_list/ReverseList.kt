@@ -1,5 +1,7 @@
 package com.moviesguo.algorithm.linked_list
 
+import com.moviesguo.leetcode.linked_list.ListNode
+
 /**
  *
  * 反转一个单链表。

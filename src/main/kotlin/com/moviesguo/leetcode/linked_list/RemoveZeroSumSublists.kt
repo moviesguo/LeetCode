@@ -1,9 +1,5 @@
 package com.moviesguo.leetcode.linked_list
 
-import linked_list.ListNode
-import linked_list.generateLinkedList
-import kotlin.system.exitProcess
-
 /**
  * 给你一个链表的头节点 head，请你编写代码，反复删去链表中由 总和 值为 0 的连续节点组成的序列，直到不存在这样的序列为止。
  *
@@ -48,7 +44,7 @@ fun removeZeroSumSublists(head: ListNode?): ListNode? {
     val preHead = ListNode(0)
     val map = HashMap<Int, ListNode>()
     preHead.next = head
-    var cur:ListNode? = preHead
+    var cur: ListNode? = preHead
     var sum = 0
     //map的key是当前节点的和
     //如果有多个相同的key,就会被覆盖

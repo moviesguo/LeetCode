@@ -1,5 +1,7 @@
 package com.moviesguo.algorithm.linked_list
 
+import com.moviesguo.leetcode.linked_list.ListNode
+
 /**
  * 请判断一个链表是否为回文链表。
  *

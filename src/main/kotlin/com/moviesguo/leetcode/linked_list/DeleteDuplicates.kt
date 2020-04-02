@@ -1,4 +1,6 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
+
+import com.moviesguo.leetcode.linked_list.ListNode
 
 /**
  * 83. 删除排序链表中的重复元素

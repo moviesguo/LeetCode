@@ -1,4 +1,4 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
 
 fun generateLinkedList(intArray: IntArray): ListNode {
     val head = ListNode(0)

@@ -1,4 +1,4 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
 
 /**
  * 请判断一个链表是否为回文链表。
@@ -29,8 +29,8 @@ fun main() {
 /**
  * 递归版本
  */
-var fontPoint:ListNode? = null //
-fun isPalindromeRecursive(head:ListNode?){
+var fontPoint: ListNode? = null //
+fun isPalindromeRecursive(head: ListNode?){
     fontPoint = head
 }
 

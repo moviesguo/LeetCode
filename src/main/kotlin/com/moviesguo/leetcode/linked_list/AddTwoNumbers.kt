@@ -1,5 +1,6 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
 
+import com.moviesguo.leetcode.linked_list.ListNode
 import java.util.*
 
 /**

@@ -1,4 +1,6 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
+
+import com.moviesguo.leetcode.linked_list.ListNode
 
 /**
  *
@@ -42,7 +44,7 @@ fun deleteDuplicates2(head: ListNode?): ListNode? {
     var lastNode = head
     //这里可以创建一个dummy = ListNode(0)然后将它的next指向head，可以省略每次判断realHead==null
     //然后遍历的时候从dummy开始
-    var realHead :ListNode? = null
+    var realHead : ListNode? = null
 
     while (cur?.next != null) {
         //如果当前节点和当前节点的下一个节点值相同或者和上一次出现的数字重复，那么将这个节点删除
@@ -79,10 +81,10 @@ fun deleteDuplicates2(head: ListNode?): ListNode? {
  * 迭代完成后，返回dummy的next。
  *
  */
-fun  deleteDuplicates(head:ListNode):ListNode? {
+fun  deleteDuplicates(head: ListNode): ListNode? {
     val dummy = ListNode(0);
     dummy.next = head
-    var cur:ListNode? = dummy
+    var cur: ListNode? = dummy
     while (cur?.next != null && cur.next!!.next != null) {
         if (cur.next!!.`val` == cur.next!!.next!!.`val`) {
             var temp = cur.next;

@@ -1,4 +1,6 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
+
+import com.moviesguo.leetcode.linked_list.ListNode
 
 /**
  * 147. 对链表进行插入排序
@@ -52,7 +54,7 @@ fun main() {
 fun insertionSortList(head: ListNode?): ListNode? {
     if (head?.next == null) return head
 
-    var dummy:ListNode? = ListNode(0)
+    var dummy: ListNode? = ListNode(0)
     dummy?.next = head
     var cur = head.next
     while (cur != null) {

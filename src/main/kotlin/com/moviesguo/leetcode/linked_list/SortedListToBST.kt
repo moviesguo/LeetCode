@@ -1,6 +1,7 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
 
 import com.moviesguo.algorithm.tree.TreeNode
+import com.moviesguo.leetcode.linked_list.ListNode
 
 
 /**
@@ -36,11 +37,11 @@ fun sortedListToBST(head: ListNode?): TreeNode? {
     return treeNode
 }
 //利用快慢指针寻找中点
-fun finMidNode(head: ListNode):ListNode {
+fun finMidNode(head: ListNode): ListNode {
     //用于记录中间节点，然后将链表断开，防止下面的递归再去递归什么的
-    var prePtr:ListNode? = null
+    var prePtr: ListNode? = null
     var slowPtr = head
-    var fastPtr:ListNode? = head
+    var fastPtr: ListNode? = head
 
     while (fastPtr?.next != null) {
         prePtr = slowPtr

@@ -1,5 +1,7 @@
 package com.moviesguo.algorithm.linked_list
 
+import com.moviesguo.leetcode.linked_list.ListNode
+
 /**
  * 给定一个链表（链表结点包含一个整型值）的头结点 head。
  *

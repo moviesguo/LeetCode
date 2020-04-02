@@ -1,6 +1,7 @@
 package com.moviesguo.algorithm.sort
 
-import com.moviesguo.algorithm.linked_list.ListNode
+import com.moviesguo.leetcode.linked_list.ListNode
+
 
 /**
  *

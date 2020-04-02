@@ -1,4 +1,6 @@
-package linked_list
+package com.moviesguo.leetcode.linked_list
+
+import com.moviesguo.leetcode.linked_list.ListNode
 
 /**
  *
@@ -29,9 +31,9 @@ fun main() {
 fun swapPairs(head: ListNode?): ListNode? {
     if (head?.next == null) return head
     val ans = head.next
-    var cur:ListNode? = head
+    var cur: ListNode? = head
     //保留上一个节点，用于连接反转之后的节点
-    var last:ListNode? = null
+    var last: ListNode? = null
     while (cur?.next != null) {
         swipe(last, cur, cur.next!!)
         last = cur
@@ -41,7 +43,7 @@ fun swapPairs(head: ListNode?): ListNode? {
 }
 
 
-fun swipe(last:ListNode?,node1: ListNode, node2: ListNode) {
+fun swipe(last: ListNode?, node1: ListNode, node2: ListNode) {
     val temp = node2.next
     node2.next = node1
     node1.next = temp
@@ -49,7 +51,7 @@ fun swipe(last:ListNode?,node1: ListNode, node2: ListNode) {
 }
 
 //递归版本
-fun swapPairsHelper(root:ListNode?):ListNode?{
+fun swapPairsHelper(root: ListNode?): ListNode?{
     if (root?.next == null) return root
 
     var first = root;
