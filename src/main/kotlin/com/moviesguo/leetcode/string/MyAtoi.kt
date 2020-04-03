@@ -48,6 +48,61 @@ package com.moviesguo.leetcode.string
  *      因此返回 INT_MIN (−231) 。
  *
  */
-fun myAtoi(str: String): Int {
-
+fun main() {
+    val str = "  -4"
+    println(myAtoi(str))
 }
+
+
+fun myAtoi(str: String): Int {
+    var ans = 0L
+    //先把空格都去掉
+    val s = str.trim()
+    if (s.isEmpty()) return 0
+    if (!s[0].isDigit() && s[0] != '-' && s[0] != '+') return 0
+    //然后判断正负
+    var isNegative = s[0] == '-'
+    //再决定开始的位置
+    var i = if (s[0].isDigit()) 0 else 1
+    //如果是数字就一直加
+    while (i < s.length && s[i].isDigit()) {
+        ans = ans * 10 + (s[i++] - '0')
+        if (!isNegative && ans >Int.MAX_VALUE ) return Int.MAX_VALUE
+        if (isNegative && ans > 1L + Int.MAX_VALUE) return Int.MIN_VALUE
+    }
+    return if (isNegative) -ans.toInt() else ans.toInt()
+}
+
+/**
+ * 未精简版，各种边界判断
+ */
+//fun myAtoi(str: String): Int {
+//    var findNum = false
+//    var isNegative = 1
+//    var ans = 0L
+//    for (i in str.indices) {
+//        if (!findNum && str[i] == '-') {
+//            findNum = true
+//            isNegative = -1
+//        }else if(!findNum && str[i] == '+'){
+//            findNum = true
+//        } else if (!findNum && str[i] in '0'..'9') {
+//            findNum = true
+//            ans = (str[i] - '0').toLong()
+//        }else if (!findNum && str[i] == ' ') {
+//            continue
+//        } else if (str[i] !in '0'..'9') {
+//            break
+//        } else if (findNum && str[i] in '0'..'9') {
+//            ans = ans * 10 + (str[i] - '0')
+//            if (ans * isNegative > Int.MAX_VALUE) return Int.MAX_VALUE
+//            else if (ans * isNegative < Int.MIN_VALUE) return Int.MIN_VALUE
+//        }
+//    }
+//    ans *= isNegative
+//    return when {
+//        ans <= Int.MIN_VALUE -> Int.MIN_VALUE
+//        ans >= Int.MAX_VALUE -> Int.MAX_VALUE
+//        else -> ans.toInt()
+//    }
+//}
