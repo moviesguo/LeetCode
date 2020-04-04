@@ -129,4 +129,26 @@ fun doubleIndexTrap(height: IntArray) {
 //    right_max=max(right_max,height[right])
 //    right-=1
 //    return ans
+
+    fun doubleIndex(height: IntArray) {
+        var leftMax = 0
+        var rightMax = 0
+        var left = 1
+        var right = height.size - 1
+        var ans = 0
+        while (left <= right) {
+            if (leftMax < rightMax) {
+                ans += Math.max(0, leftMax - height[left])
+                leftMax = Math.max(leftMax, height[left])
+                left++
+            } else {
+                //如果rightMax比当前要小那么没法存水，所以用0来比较
+                ans += Math.max(0, rightMax - height[right])
+                rightMax = Math.max(rightMax, height[right])
+                right--
+            }
+
+        }
+    }
+
 }
