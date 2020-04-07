@@ -67,16 +67,20 @@ fun main() {
     rotate(matrix)
 }
 
+
+
 fun rotate(matrix: Array<IntArray>): Unit {
 
     var start = 0
     var end = matrix.size - 1
 
+    //先将i 和 size - i 行进行交换
     while (start < end) {
         swapRow(matrix, start, end)
         start++
         end--
     }
+    //然后再对角交换
     for (i in 0 until matrix.size ) {
         var j = i + 1
         while (j != matrix.size) {
