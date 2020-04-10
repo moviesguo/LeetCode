@@ -1,6 +1,7 @@
 package com.moviesguo.leetcode.string
 
 import sun.net.idn.StringPrep
+import java.lang.StringBuilder
 import java.util.*
 
 /**
@@ -35,18 +36,20 @@ import java.util.*
  */
 
 fun main(){
-//    println(reverseWords("world! hello"))
+    println(reverseWords("world! hello"))
 }
 
-//Java版本  Kotlin还不能用
-//fun reverseWords(s: String): String {
-//    // 除去开头和末尾的空白字符
-//    s = s.trim();
-//    // 正则匹配连续的空白字符作为分隔符分割
-//    List<String> wordList = Arrays.asList(s.split("\\s+"));
-//    Collections.reverse(wordList);
-//    return String.join(" ", wordList);
-//}
+fun reverseWords(s: String): String {
+    val ans = StringBuilder()
+    s.split("\\s+".toRegex()).reversed().forEach {
+        if (it.isNotBlank()){
+            ans.append(it)
+            ans.append(" ")
+        }
+    }
+    ans.trim().toString()
+    return s.trim().split("\\s+".toRegex()).reversed().joinToString(separator = " ")
+}
 
 //同下面的方法
 //fun reverseWords(s: String): String {
