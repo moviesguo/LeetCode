@@ -79,6 +79,7 @@ public class Palindrome {
 
     public boolean recursivelyCheck(ListNode currentNode){
         if (currentNode != null) {
+            //不断往下递归,如果一个对不上了就直接全部返回了
             if (!recursivelyCheck(currentNode.next)) {
                 return false;
             }
