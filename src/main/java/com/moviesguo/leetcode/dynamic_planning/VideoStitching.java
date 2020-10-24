@@ -1,5 +1,7 @@
 package com.moviesguo.leetcode.dynamic_planning;
 
+import java.util.Arrays;
+
 /**
  * 你将会获得一系列视频片段，这些片段来自于一项持续时长为T秒的体育赛事。这些片段可能有所重叠，也可能长度不一。
  *
@@ -53,33 +55,54 @@ public class VideoStitching {
 //        int[][] clips = {{0,1},{1,2} };
 //        int[][] clips = {{0,1},{6,8},{0,2},{5,6},{0,4},{0,3},{6,7},{1,3}
 //                ,{4,7},{1,4},{2,5},{2,6},{3,4},{4,5},{5,7},{6,9}};
-        int[][] clips = {{0,4},{2,8}};
-        System.out.println(videoStitching.videoStitching(clips, 5));
+        int[][] clips = {{0,6},{6,9}};
+        System.out.println(videoStitching.videoStitching(clips, 9));
     }
+//    public int videoStitching(int[][] clips, int T) {
+//        int[] dp = new int[T+1];
+//        dp[0] = 0;
+//        int size = clips.length;
+//        for(int i = 1;i <= T;i++){
+//            dp[i] = T + 1;
+//            for(int j = 0;j < size;j++){
+//                int down = clips[j][0];
+//                int up = clips[j][1];
+//                if(down <=i && up>=i){
+//                    //其实不用这样，直接按下面的思路来
+//                    //如果当前区间是从0开始的，那么最小数目就是1
+//                    if(down == 0) dp[i] = 1;
+//                        //如果不是从0开始的就要看前面的最小值
+//                    else {
+//                        //遍历去前面找合适的
+//                        for(int k = i - 1;k >= down;k--){
+//                            if (dp[k] == T + 1){ continue;}
+//                            dp[i] = Math.min(dp[k] + 1,dp[i]);
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return dp[T] == T+1 ? -1 : dp[T];
+//    }
+
     public int videoStitching(int[][] clips, int T) {
-        int[] dp = new int[T+1];
+        int[] dp = new int[T + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE - 1);
         dp[0] = 0;
-        int size = clips.length;
-        for(int i = 1;i <= T;i++){
-            dp[i] = T + 1;
-            for(int j = 0;j < size;j++){
-                int down = clips[j][0];
-                int up = clips[j][1];
-                if(down <=i && up>=i){
-                    //如果当前区间是从0开始的，那么最小数目就是1
-                    if(down == 0) dp[i] = 1;
-                        //如果不是从0开始的就要看前面的最小值
-                    else {
-                        //遍历去前面找合适的
-                        for(int k = i - 1;k >= down;k--){
-                            if (dp[k] == T + 1){ continue;}
-                            dp[i] = Math.min(dp[k] + 1,dp[i]);
-                        }
-                    }
+        //找i的每个值的最小值
+        for (int i = 1; i <= T; i++) {
+            for (int[] clip : clips) {
+                //如果这里这个片段的起始段小于当前的，并且尾部大于等于当前的，就可以认为是有效的拼接
+                //然后直接去找这个片段头部的最小的点就可以了
+                if (clip[0] < i && i <= clip[1]) {
+                    //如果clip为[0,8] 那么就是 dp[0] + 1
+                    //如果clip为[1,9] 那么就是 dp[1] + 1 ,所以不需要把 i 到 clip[i] 之间的数都找一遍
+                    // [6,9],[1,6],[0,6]
+                    dp[i] = Math.min(dp[i], dp[clip[0]] + 1);
                 }
             }
         }
-        return dp[T] == T+1 ? -1 : dp[T];
+        return dp[T] == Integer.MAX_VALUE - 1 ? -1 : dp[T];
     }
 
 }
