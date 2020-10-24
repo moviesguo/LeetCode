@@ -67,7 +67,7 @@ public class VideoStitching {
 //            for(int j = 0;j < size;j++){
 //                int down = clips[j][0];
 //                int up = clips[j][1];
-//                if(down <=i && up>=i){
+//                if(down<i && up>=i){
 //                    //其实不用这样，直接按下面的思路来
 //                    //如果当前区间是从0开始的，那么最小数目就是1
 //                    if(down == 0) dp[i] = 1;
