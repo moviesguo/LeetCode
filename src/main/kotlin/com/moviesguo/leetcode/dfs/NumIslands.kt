@@ -32,11 +32,12 @@ package com.moviesguo.algorithm.dfs
  */
 fun numIslands(grid: Array<CharArray>): Int {
     var count = 0
-    for (i in 0 until grid.size) {
-
-        for (j in 0 until grid[0].size) {
-            dfs(grid,i,j)
-            count++
+    for (i in grid.indices) {
+        for (j in grid[0].indices) {
+            if (grid[i][j] == '1') {
+                dfs(grid,i,j)
+                count++
+            }
         }
     }
     return count
