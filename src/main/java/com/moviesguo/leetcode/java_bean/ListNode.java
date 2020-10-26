@@ -6,6 +6,10 @@ public class ListNode {
     public ListNode(int val){
         this.val = val;
     }
+
+    public ListNode(){
+    }
+
     public static ListNode generateTest() {
         return null;
     }
