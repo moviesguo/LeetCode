@@ -45,13 +45,13 @@ public class SmallerNumbersThanCurrent {
     //然后在计算每个数有多少比自己小的
     //最后再把lessThan和nums对应起来就是结果了
     public int[] smallerNumbersThanCurrent(int[] nums) {
-        int[] counts = new int[100];
+        int[] counts = new int[101];
         for (int num : nums) {
             counts[num] = counts[num] + 1;
         }
-        int[] lessThan = new int[100];
+        int[] lessThan = new int[101];
         int temp = 0;
-        for (int i = 0;i < 100;++i){
+        for (int i = 0;i < 101;++i){
             lessThan[i] = temp;
             temp += counts[i];
         }
