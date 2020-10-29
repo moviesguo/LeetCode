@@ -1,6 +1,8 @@
 package com.moviesguo.leetcode.string;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 6. Z 字形变换
@@ -59,6 +61,11 @@ public class ZConvert {
         } else {
             column = halfZ * (numRows * 2 - 2) + (s.length() % halfZ == 0 ? 0 : 1);
         }
+        //这里可以换成StringBuilder,然后下面把每一行直接加进去,可以省去了column的计算
+//        List<StringBuilder> rows = new ArrayList<>();
+//        for (int i = 0; i < Math.min(numRows, s.length()); ++i) {
+//            rows.add(new StringBuilder());
+//        }
         char[][] matrix = new char[row][column];
         int curCow = 0;
         int curCol = 0;
@@ -90,5 +97,29 @@ public class ZConvert {
         }
         return builder.toString();
     }
+
+    /**
+     * 行 0 中的字符位于索引 k (2⋅numRows−2) 处;
+     * 行 numRows−1 中的字符位于索引 k (2⋅numRows−2)+numRows−1 处;
+     * 内部的 行 ii 中的字符位于索引 k (2⋅numRows−2)+i 以及 (k+1)(2⋅numRows−2)−i 处;
+     */
+
+//    public String convert(String s, int numRows) {
+//
+//        if (numRows == 1) return s;
+//
+//        StringBuilder ret = new StringBuilder();
+//        int n = s.length();
+//        int cycleLen = 2 * numRows - 2;
+//
+//        for (int i = 0; i < numRows; i++) {
+//            for (int j = 0; j + i < n; j += cycleLen) {
+//                ret.append(s.charAt(j + i));
+//                if (i != 0 && i != numRows - 1 && j + cycleLen - i < n)
+//                    ret.append(s.charAt(j + cycleLen - i));
+//            }
+//        }
+//        return ret.toString();
+//    }
 
 }
