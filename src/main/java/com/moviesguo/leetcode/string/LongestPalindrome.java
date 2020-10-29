@@ -75,6 +75,7 @@ public class LongestPalindrome {
                 if (charArray[i] != charArray[j]) {
                     dp[i][j] = false;
                 } else {
+                    //[i + 1, j - 1] 即长度严格小于 2，即 j - 1 - (i + 1) + 1 < 2
                     if (j - i < 3) {
                         dp[i][j] = true;
                     } else {
